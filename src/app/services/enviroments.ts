@@ -1,5 +1,5 @@
 export var Enviroment = {
-    urlBase: "http://localhost:8080",
+    urlBase: "https://marketplace-pl.herokuapp.com/",
     urlCategory: "/category",
     urlProduct: "/product",
     urlProductDetail: "/product_detail",
