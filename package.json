@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run --prod go",
     "go": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "preinstall": "npm install -g angular-cli",
     "build:prod": "ng build --prod",
-    "heroku-postbuild": "npm run --prod go",
+    "heroku-postbuild": "ng build --prod",
     "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve",
     "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --configuration=prod"
   },
