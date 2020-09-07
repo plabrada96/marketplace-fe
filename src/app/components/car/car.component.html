@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Shopping cart detail</h1>
+    </div>
+    <div *ngIf="getTotal()>0" class="col-md-4">
+      <h1>Total: {{getTotal() | currency}} </h1>
+    </div>
+  </div>
+  <hr>
+  <!-- Card info -->
+  <div *ngIf="getTotal()>0">
+    <div *ngFor="let product of products; let index = index"
+      class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+      <div class="col-auto d-none d-lg-block">
+        <img [src]="getImagesByProduct(product)" [alt]="product.name" width="200" height="200">
+      </div>
+      <div class="col p-4 d-flex flex-column position-static">
+        <a data-toggle="dropdown" (click)="showProductDetail(product.id)"
+          class="d-inline-block mb-2 text-primary">{{product.name}}</a>
+        <h3 class="mb-0">{{product.price | currency}}</h3>
+        <h2><small>{{product.status}}</small></h2>
+        <div class="d-flex justify-content-center">
+          <a data-toggle="dropdown" class="btn btn-danger" style="width: 50%; margin-right: 10%;"
+            (click)="deleteProduct(product)">Delete product</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<!-- products is empty -->
+  <div *ngIf="products.length==0">
+    <div class="alert alert-info" role="alert">
+      ¡Shopping cart is empty!
+    </div>
+  </div>
+</div>

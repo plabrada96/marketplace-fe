@@ -1,0 +1,78 @@
+<div class="container">
+    <!-- info product -->
+    <h1 *ngIf="(productDetailO | async) as productDetail">{{productDetail.product.name }}
+        <small> {{productDetail.product.price | currency}}</small></h1>
+
+    <div *ngIf="(productDetailO | async) as productDetail" class="row">
+        <hr>
+        <div class="col-md-4">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions"
+                        *ngFor="let image of getImagesByProduct(productDetail); let index = index"
+                        [attr.data-slide-to]="index" [ngClass]="{'active' : index == 0}"></li>
+                </ol>
+                <div class="carousel-inner" *ngFor="let image of getImagesByProduct(productDetail); let index = index">
+                    <div class="carousel-item" [ngClass]="{'active' : index == 0}">
+                        <img [src]="image" class="d-block w-100" [alt]="index">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h3>Description</h3>
+            <hr>
+            <p>
+                {{productDetail.description}}
+            </p>
+            <!-- Details -->
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <p>
+                        <b>Color: </b>{{productDetail.color}}
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <b>Brand: </b>{{productDetail.brand}}
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <b>Material: </b>{{productDetail.material}}
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <!-- agregate products in shopping cart -->
+            <div>
+                <a (click)="addProductToShoppingCar(productDetail.product)"
+                    class="btn btn-outline-success btn-block">Add to car</a>
+            </div>
+            <!-- Alert message -->
+            <div *ngIf="showMessage" class="alert alert-success" role="alert">
+                Añadido al carrito correctamente!
+            </div>
+        </div>
+
+        <div>
+
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
