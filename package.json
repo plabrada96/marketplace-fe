@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "preinstall": "npm install -g angular-cli",
-    "postinstall": "ng build --aot -prod",
     "build:prod": "ng build --prod",
     "heroku-postbuild": "npm install && npm run build --prod"
   },
