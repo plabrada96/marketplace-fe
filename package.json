@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "go": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -12,7 +13,7 @@
     "build:prod": "ng build --prod",
     "heroku-postbuild": "npm run go",
     "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve",
-    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --configuration=prod",
+    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --configuration=prod"
   },
   "private": true,
   "dependencies": {
